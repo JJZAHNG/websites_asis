@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 必须加，保证 Actions 有权限推分支
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -18,4 +20,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
           publish_branch: gh-pages
-          force_orphan: true
+          force_orphan: true  # 强制新建空 gh-pages 分支推送
