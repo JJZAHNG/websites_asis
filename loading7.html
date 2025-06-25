@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>紫银渐变 Gooey Loading</title>
+    <style>
+        body {
+            background: radial-gradient(circle at center, #0a0a0a, #1e1f3d);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .loading {
+            width: 166px;
+            height: 166px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            filter: url("#goo");
+            -webkit-filter: url("#goo");
+        }
+
+        .loading:before, .loading:after {
+            content: '';
+            border-radius: 50%;
+            background: radial-gradient(circle at center, #9b59b6, #ecf0f1);
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            left: 72px;
+            top: 8px;
+            animation: rotate 6s linear infinite;
+            transform-origin: 12px 76px;
+            box-shadow: 45px 19px 0px 0px radial-gradient(circle at center, #9b59b6, #ecf0f1),
+            62px 63px 0px 0px radial-gradient(circle at center, #9b59b6, #ecf0f1),
+            45px 107px 0px 0px radial-gradient(circle at center, #9b59b6, #ecf0f1),
+            0px 126px 0px 0px radial-gradient(circle at center, #9b59b6, #ecf0f1),
+            -46px 107px 0px 0px radial-gradient(circle at center, #9b59b6, #ecf0f1),
+            -63px 63px 0px 0px radial-gradient(circle at center, #9b59b6, #ecf0f1),
+            -46px 19px 0px 0px radial-gradient(circle at center, #9b59b6, #ecf0f1);
+        }
+
+        .loading:after {
+            animation-direction: reverse;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="loading"></div>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6.3" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix" values="
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          0 0 0 14 -4" result="goo"/>
+            <feBlend in="SourceGraphic" in2="goo"/>
+        </filter>
+    </defs>
+</svg>
+</body>
+</html>

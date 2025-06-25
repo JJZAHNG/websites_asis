@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>炫彩 Loading 动画</title>
+    <style>
+        body {
+            background: radial-gradient(circle at center, #0a0a0a, #1e1f3d 80%);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .spinner {
+            position: absolute;
+            width: 128px;
+            height: 128px;
+            top: calc(50% - 64px);
+            left: calc(50% - 64px);
+            transform: perspective(206px) rotateX(45deg);
+        }
+
+        .outer {
+            box-sizing: border-box;
+            animation: spin 3s linear infinite;
+            height: 100%;
+        }
+
+        .inner {
+            position: absolute;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            animation: spin 1.8s ease-in-out infinite;
+        }
+
+        .inner.tl {
+            top: 0;
+            left: 0;
+            border-top: 3px solid transparent;
+            border-left: 4px solid transparent;
+            background: conic-gradient(from 180deg at 50% 50%, #8e44ad, #3498db);
+            box-shadow: 0 0 15px #8e44ad, 0 0 30px #3498db;
+        }
+
+        .inner.tr {
+            top: 0;
+            right: 0;
+            border-top: 3px solid transparent;
+            border-right: 4px solid transparent;
+            background: conic-gradient(from 270deg at 50% 50%, #3498db, #1abc9c);
+            box-shadow: 0 0 15px #3498db, 0 0 30px #1abc9c;
+        }
+
+        .inner.br {
+            bottom: 0;
+            right: 0;
+            border-bottom: 3px solid transparent;
+            border-right: 4px solid transparent;
+            background: conic-gradient(from 0deg at 50% 50%, #1abc9c, #2ecc71);
+            box-shadow: 0 0 15px #1abc9c, 0 0 30px #2ecc71;
+        }
+
+        .inner.bl {
+            bottom: 0;
+            left: 0;
+            border-bottom: 3px solid transparent;
+            border-left: 4px solid transparent;
+            background: conic-gradient(from 90deg at 50% 50%, #e74c3c, #fd79a8);
+            box-shadow: 0 0 15px #e74c3c, 0 0 30px #fd79a8;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="spinner">
+    <div class="outer">
+        <div class="inner tl"></div>
+        <div class="inner tr"></div>
+        <div class="inner br"></div>
+        <div class="inner bl"></div>
+    </div>
+</div>
+</body>
+</html>
