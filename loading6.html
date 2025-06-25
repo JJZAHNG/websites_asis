@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>放大版七彩音浪 Loading 动画</title>
+  <style>
+    body {
+      background: radial-gradient(circle at center, #0a0a0a, #1e1f3d);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .bars {
+      height: 80px;
+      width: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -40px 0 0 -50px;
+    }
+
+    .bar {
+      position: absolute;
+      bottom: 1px;
+      width: 8px;
+      height: 6px;
+      border-radius: 4px;
+      animation: sound 0ms -800ms linear infinite alternate;
+      box-shadow: 0 0 12px currentColor, 0 0 24px currentColor;
+    }
+
+    @keyframes sound {
+      0% {
+        opacity: 0.4;
+        height: 6px;
+      }
+      100% {
+        opacity: 1;
+        height: 80px;
+      }
+    }
+
+    /* 七彩配色 + 放大条形位置 */
+    .bar:nth-child(1)  { left: 2px;   animation-duration: 474ms; color: #ff4d4d; background: currentColor; }
+    .bar:nth-child(2)  { left: 12px;  animation-duration: 433ms; color: #ff944d; background: currentColor; }
+    .bar:nth-child(3)  { left: 22px;  animation-duration: 407ms; color: #ffe44d; background: currentColor; }
+    .bar:nth-child(4)  { left: 32px;  animation-duration: 458ms; color: #b6ff4d; background: currentColor; }
+    .bar:nth-child(5)  { left: 42px;  animation-duration: 400ms; color: #4dff4d; background: currentColor; }
+    .bar:nth-child(6)  { left: 52px;  animation-duration: 427ms; color: #4dffb6; background: currentColor; }
+    .bar:nth-child(7)  { left: 62px;  animation-duration: 441ms; color: #4dffe4; background: currentColor; }
+    .bar:nth-child(8)  { left: 72px;  animation-duration: 419ms; color: #4db6ff; background: currentColor; }
+    .bar:nth-child(9)  { left: 82px;  animation-duration: 487ms; color: #4d4dff; background: currentColor; }
+    .bar:nth-child(10) { left: 92px;  animation-duration: 442ms; color: #944dff; background: currentColor; }
+  </style>
+</head>
+<body>
+  <div class="bars">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</body>
+</html>
